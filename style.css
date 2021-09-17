@@ -179,7 +179,8 @@ footer {
 	margin: 5em 0 2em 0;
 }
 
-.return a {
+.return a,
+button[type=submit] a {
 	text-decoration: none;
 	color: white;
 }
