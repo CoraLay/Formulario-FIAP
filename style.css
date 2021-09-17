@@ -180,7 +180,7 @@ footer {
 }
 
 .return a,
-button[type=submit] a {
+#btnsend {
 	text-decoration: none;
 	color: white;
 }
