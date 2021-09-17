@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@100;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<title>Cadastro de ponto turístico</title>
+</head>
+
+<body>
+
+	<header>
+		<h1>Gulliver Traveller - Cadastro de pontos turísticos</h1>
+	</header>
+
+	<main>
+		<section class="intro">
+			<h2>Nesta tela, você pode submeter um ponto turístico para avaliação.</h2>
+			<p>Tenha todos os dados anotados e leve em consideração a relevância do ponto escolhido para o turismo local.</p>
+		</section>
+		<form method="POST" name="new-point" id="new-point" action="success.html">
+
+			<fieldset>
+				<legend> Informações principais </legend>
+				<div class="box">
+					<div class="form-box width-50">
+						<label for="title">Título do ponto turístico</label>
+						<input type="text" name="title" id="title" placeholder="Ex.: Parque das Araras" required minlength="4" maxlength="35">
+					</div>
+					<div class="form-box width-50">
+						<label for="date">Data do cadastro</label>
+						<input type="date" name="date" id="date" required>
+					</div>
+					<div class="form-box width-100">
+						<label for="description">Descrição</label>
+						<textarea type="text" name="description" id="description" rows="10" placeholder="Breve descrição"
+							required minlength="10" maxlength="256"></textarea>
+						<label for="photo">Selecione as fotos</label>
+						<input type="file" name="photo" id="photo" placeholder="Selecione as fotos" multiple>
+					</div>
+					<!-- Não é obrigatório incluir preço, pois há atividades sem ingresso -->
+					<div class="form-box width-50">
+						<label for="price">Valor do ingresso</label>
+						<input type="number">
+					</div>
+					<div class="form-box width-50">
+						<div>
+							<label>Possui estacionamento?</label>
+							<input type="radio" name="park" id="parkYes" value="yes" checked>
+							<label for="parkYes">Sim</label>
+							<input type="radio" name="park" id="parkNo" value="no">
+							<label for="parkNo">Não</label>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend> Funcionamento </legend>
+				<div class="form-days">
+					<label for="days">Dias de funcionamento</label>
+					<div>
+						<input type="checkbox" name="sunday" id="sunday" value="sun">
+						<label for="sunday">Domingo</label>
+					</div>
+					<div>
+						<input type="checkbox" name="monday" id="monday" value="mon" checked>
+						<label for="monday">Segunda-feira</label>
+					</div>
+					<div>
+						<input type="checkbox" name="tuesday" id="tuesday" value="tue" checked>
+						<label for="tuesday">Terça-feira</label>
+					</div>
+					<div>
+						<input type="checkbox" name="wednesday" id="wednesday" value="wed" checked>
+						<label for="wednesday">Quarta-feira</label>
+					</div>
+					<div>
+						<input type="checkbox" name="thursday" id="thursday" value="thu" checked>
+						<label for="thursday">Quinta-feira</label>
+					</div>
+					<div>
+						<input type="checkbox" name="friday" id="friday" value="fri" checked>
+						<label for="friday">Sexta-feira</label>
+					</div>
+					<div>
+						<input type="checkbox" name="saturday" id="saturday" value="sat">
+						<label for="saturday">Sábado</label>
+					</div>
+				</div>
+				<div class="hours">
+					<label for="hours">Horário de funcionamento</label>
+					<input type="time" name="hours" required> até <input type="time" name="hours" required>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend> Localização </legend>
+				<div class="form-box">
+					<label for="CEP">CEP</label>
+					<input type="text" name="CEP" id="CEP" pattern="\d{5}-\d{3}" placeholder="00000-000"max="99999999" required>
+					<label for="state"> Estado</label>
+					<input type="text" name="state" id="state" placeholder="Ex.: SP" minlength="2" maxlength="2" required>
+					<label for="city"> Cidade</label>
+					<input type="text" name=city id=city placeholder="Ex.: São Paulo" minlength="5" maxlength="35" required>
+					<label for="end1 end2">Logradouro</label>
+					<select name="end1" id="end1" required>
+						<option value="0" disabled selected>Selecione</option>
+						<option value="1">Rua</option>
+						<option value="2">Avenida</option>
+						<option value="3">Travessa</option>
+						<option value="4">Rodovia</option>
+						<option value="5">Praça</option>
+						<option value="6">Viela</option>
+					</select>
+					<label for="end2">Nome</label>
+					<input type="text" name="end2" id="end2" placeholder="Ex.: Anchieta" required>
+					<label for="number">Número</label>
+					<input type="number" name="number" id="number" min="1" max="99999">
+					<label for="complement">Complemento</label>
+					<input type="text" name="complement" id="complement" placeholder="Ex.: Segundo andar">
+				</div>
+				<div class="distance">
+					<label for="distance">Distância do centro da cidade:</label>
+					<input type="range" name=distance id="distance">
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend> Contato </legend>
+				<div class="form-box">
+					<label for="email">E-mail</label>
+					<input type="email" name="email" id="email" placeholder="Ex.: seuemail@gmail.com" required>
+				</div>
+				<div class="form-box">
+					<label for="tel">Telefone</label>
+					<input type="tel" name="tel" id="tel" placeholder="(00) 0000-0000" max required>
+				</div>
+				<div class="form-box">
+					<label for="instagram">Instagram</label>
+					<input type="text" name="instagram" id="instagram" placeholder="@contadolocal">
+					<label for="Facebook"> Facebook</label>
+					<input type="text" name="facebook" id="facebook" placeholder="URL da pagina do facebook">
+					<label for="site">Site</label>
+					<input type="text" name="site" id="site" placeholder="URL da pagina oficial">
+				</div>
+			</fieldset>
+
+			<div class="buttons">
+				<button type="submit">Enviar</button>
+				<button type="reset">Limpar</button>
+			</div>
+
+		</form>
+
+	</main>
+
+	<footer>
+		Desenvolvido por: Layla Coralina e Daniele Fachina
+	</footer>
+
+</body>
+
+</html>
